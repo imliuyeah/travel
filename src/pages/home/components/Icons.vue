@@ -48,11 +48,11 @@
         },{
           id: '0007',
           imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/cb506456115da181cd1deadfa17bfee9.png',
-          desc: '浦江公园',
+          desc: '浦江郊野公园',
         },{
           id: '0008',
           imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png',
-          desc: '上海野生',
+          desc: '上海野生动物园',
         },{
           id: '0009',
           imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
@@ -81,6 +81,8 @@
 </script>
 
 <style lang="stylus" scoped>
+  @import '~styles/varibles.styl';
+  @import '~styles/mixins.styl';
 	.icons >>> .swiper-container {
     height: 0; 
     padding-bottom: 50%;
@@ -114,5 +116,6 @@
     line-height: .44rem;
     text-align: center;
     color: $darkTextColor;
+    ellipsis();
   }
 </style>
