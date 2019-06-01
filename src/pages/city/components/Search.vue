@@ -8,7 +8,7 @@
         <div class="search-content" v-show="keyword" ref="search">
             <ul>
                 <!-- 将 watch 中循环得到的匹配的值，用 v-for 循环显示到页面上 -->
-                <li class="search-item border-bottom" v-for="item of list">
+                <li class="search-item border-bottom" v-for="item of list" :key="item.id" @click="handleCityClick(item.name)">
                     {{item.name}}
                 </li>
                 <!-- 当没有找到匹配数据时，会显示这个 li 标签的内容 -->
@@ -22,6 +22,7 @@
 
 <script>
 import BScroll from 'better-scroll'
+import { mapMutations } from 'vuex'
 export default {
     name: 'CitySearch',
     props: {
@@ -35,11 +36,20 @@ export default {
             timer: null,
         }
     },
+    methods: {
+        handleCityClick (city) {
+            // this.$store.commit('changeCity' , city)
+            this.changeCity(city)
+            this.$router.push('/')
+        },
+        ...mapMutations(['changeCity'])
+    },
     computed: {
         // 当 list 有内容时，说明找到了匹配的 keyword ，则返回 false ，当 list 为空时，说明没有找到匹配的 keyword ，则返回 true
         hasNoData () {
             return !this.list.length
         }
+        
     },
     watch: {
         keyword () {
@@ -73,7 +83,7 @@ export default {
             },100)
         }
     },
-    // 利用 better-scroll 实现查询到的列表，超出页面的部分滚动效果
+    //利用 better-scroll 实现查询到的列表，超出页面的部分滚动效果
     mounted () {
         this.scroll = new BScroll(this.$refs.search)
     }
