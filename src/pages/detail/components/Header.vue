@@ -9,7 +9,6 @@
                 <div class="iconfont header-back">&#xe658;</div>
             </router-link>
         </div>
-        <div class="a"></div>
     </div>
 </template>
 
@@ -48,10 +47,8 @@ export default {
 
 <style lang="stylus" scoped>
     @import '~styles/varibles.styl'
-    .a{
-        height: 50rem;
-    }
     .header-fixed {
+        z-index: 2;
         position: fixed;
         top: 0;
         height: .8rem;
