@@ -36,20 +36,11 @@ export default {
             timer: null,
         }
     },
-    methods: {
-        handleCityClick (city) {
-            // this.$store.commit('changeCity' , city)
-            this.changeCity(city)
-            this.$router.push('/')
-        },
-        ...mapMutations(['changeCity'])
-    },
     computed: {
         // 当 list 有内容时，说明找到了匹配的 keyword ，则返回 false ，当 list 为空时，说明没有找到匹配的 keyword ，则返回 true
         hasNoData () {
             return !this.list.length
         }
-        
     },
     watch: {
         keyword () {
@@ -82,6 +73,15 @@ export default {
                 this.list = result
             },100)
         }
+    },
+    methods: {
+        handleCityClick (city) {
+            // this.$store.commit('changeCity' , city)
+            this.changeCity(city)
+            this.keyword = ''
+            this.$router.push('/')
+        },
+        ...mapMutations(['changeCity'])
     },
     //利用 better-scroll 实现查询到的列表，超出页面的部分滚动效果
     mounted () {
