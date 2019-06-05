@@ -21,5 +21,8 @@ export default new Router({
       name: 'Detail',
       component: Detail
     }
-  ]
+  ],
+  scrollBehavior: function (to, from, savedPosition) {
+    return savedPosition || { x: 0, y: 0 }
+  }
 })
