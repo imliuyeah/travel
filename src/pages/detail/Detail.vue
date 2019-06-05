@@ -34,6 +34,7 @@ export default {
     },
     methods: {
         getHomeInfo () {
+            // 这里等于 '/api/detail.json?id=' + this.$route.params
             axios.get('/api/detail.json', {
                params: {
                    id: this.$route.params.id
