@@ -1,45 +1,15 @@
 <template>
   <div class="wrapper">
-<<<<<<< HEAD
-  	<swiper :options="swiperOption" v-if="showSwiper">
-  	    <swiper-slide v-for="item of list" :key="item.id">
-          <img class="swiper-img" :src="item.imgUrl" /> 
-        </swiper-slide>
-  	    <div class="swiper-pagination"  slot="pagination"></div>
-=======
     <swiper :options="swiperOption">
       <swiper-slide v-for="item of swiperList" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" />
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
->>>>>>> index-swiper
     </swiper>
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
-	export default {
-		name: 'HeaderSwiper',
-    props: {
-      list: Array
-    },
-		data () {
-			return {
-				swiperOption: {
-          pagination: '.swiper-pagination',
-          autoplay: 4000,
-          loop: true
-        }
-		  }
-	  },
-    computed: {
-      showSwiper () {
-        return this.list.length
-      }
-    }
-  }
-=======
 export default {
   name: "HeaderSwiper",
   data() {
@@ -79,7 +49,6 @@ export default {
     };
   }
 };
->>>>>>> index-swiper
 </script>
 
 <style lang="stylus" scoped>
