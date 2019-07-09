@@ -1,9 +1,13 @@
 {
   "ret": true,
   "data": {
-    "sightName": "大连圣亚海洋世界(AAAA景区)",
-    "bannerImg": "http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg",
-    "gallaryImgs": ["http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_800x800_70debc93.jpg", "http://img1.qunarzz.com/sight/p0/1709/76/7691528bc7d7ad3ca3.img.png_800x800_9ef05ee7.png"],
+    "sightName": "故宫(AAAAA景区)",
+    "bannerImg": "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_r_800x800_6edd8174.jpg",
+    "gallaryImgs": [
+      "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_r_800x800_6edd8174.jpg", 
+      "http://img1.qunarzz.com/sight/p0/1907/e4/e4a734b0c3fb9598a3.img.jpg_r_800x800_ddb72294.jpg",
+      "http://img1.qunarzz.com/sight/p0/1907/cd/cdd8448b61cd6042a3.img.jpg_r_800x800_e8f50aa2.jpg"
+    ],
     "categoryList": [
       {
         "title": "成人票",

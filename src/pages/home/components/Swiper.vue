@@ -52,18 +52,25 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  .wrapper >>> .swiper-pagination-bullet
-    background: #fff
-    opacity: .6
-  .wrapper >>> .swiper-pagination-bullet-active 
-    background: #fff
-    opacity: 1
-  .wrapper
-    overflow: hidden;
-    width: 100%
-    height: 0
-    padding-bottom: 37.08%
-    background: #eee
-    .swiper-img 
-      width: 100%
+.wrapper >>> .swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.6;
+}
+
+.wrapper >>> .swiper-pagination-bullet-active {
+  background: #fff;
+  opacity: 1;
+}
+
+.wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  padding-bottom: 37.08%;
+  background: #eee;
+
+  .swiper-img {
+    width: 100%;
+  }
+}
 </style>
