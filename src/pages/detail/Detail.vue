@@ -6,6 +6,7 @@
          :sightName = "sightName"
         ></detail-banner>
         <detail-header></detail-header>
+        <detail-info></detail-info>
         <detail-List :list="list"></detail-List>
         <div class="container"></div>
     </div>
@@ -14,6 +15,7 @@
 <script>
 import DetailBanner from './components/Banner'
 import DetailHeader from './components/Header'
+import DetailInfo from './components/Info'
 import DetailList from './components/List'
 import axios from 'axios'
 
@@ -22,6 +24,7 @@ export default {
     components: {
         DetailBanner,
         DetailHeader,
+        DetailInfo,
         DetailList
     },
     data () {
