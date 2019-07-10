@@ -4,6 +4,7 @@
     <detail-header></detail-header>
     <detail-info></detail-info>
     <detail-announce></detail-announce>
+    <detail-recommend :list="recommendList"></detail-recommend>
     <detail-List :list="list"></detail-List>
     <div class="container"></div>
   </div>
@@ -14,6 +15,7 @@ import DetailBanner from "./components/Banner";
 import DetailHeader from "./components/Header";
 import DetailInfo from "./components/Info";
 import DetailAnnounce from "./components/Announce";
+import DetailRecommend from "./components/Recommend";
 import DetailList from "./components/List";
 import axios from "axios";
 
@@ -24,11 +26,13 @@ export default {
     DetailHeader,
     DetailInfo,
     DetailAnnounce,
+    DetailRecommend,
     DetailList
   },
   data() {
     return {
       bannerImg: "",
+      recommendList: [],
       list: [],
       gallaryImgs: [],
       sightName: ""
@@ -50,6 +54,7 @@ export default {
       if (res.ret && res.data) {
         const data = res.data;
         this.bannerImg = data.bannerImg;
+        this.recommendList = data.recommendList
         this.list = data.categoryList;
         this.gallaryImgs = data.gallaryImgs;
         this.sightName = data.sightName;

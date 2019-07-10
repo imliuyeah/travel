@@ -52,7 +52,7 @@ export default {
   z-index: 2;
   position: fixed;
   top: 0;
-  height: 0.8rem;
+  height: $headerHeight;
   width: 100%;
   line-height: $headerHeight;
   background: $bgColor;
