@@ -27,41 +27,28 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/mixins.styl';
 
-.title {
-  margin-top: 0.2rem;
-  line-height: 0.8rem;
-  background: #eee;
-  text-indent: 0.2rem;
-}
-
-.item-img-wrapper {
-  overflow: hidden;
-  height: 0;
-  padding-bottom: 36.8%;
-}
-
-.item {
-  margin-bottom: 0.1rem;
-}
-
-.item-img {
-  width: 100%;
-}
-
-.item-info {
-  padding: 0.1rem;
-}
-
-.item-title {
-  line-height: 0.54rem;
-  font-size: 0.3rem;
-  ellipsis();
-}
-
-.item-desc {
-  line-height: 0.4rem;
-  color: #bbb;
-  font-size: 0.24rem;
-  ellipsis();
-}
+.title
+  margin-top: 0.2rem
+  line-height: 0.8rem
+  background: #eee
+  text-indent: 0.2rem
+.item
+  margin-bottom: 0.1rem
+  .item-img-wrapper
+    overflow: hidden
+    height: 0
+    padding-bottom: 36.8%
+    .item-img
+      width: 100%
+  .item-info
+    padding: 0.1rem
+    .item-title
+      line-height: 0.54rem
+      font-size: 0.3rem
+      ellipsis()
+    .item-desc
+      line-height: 0.4rem
+      color: #bbb
+      font-size: 0.24rem
+      ellipsis()
 </style>

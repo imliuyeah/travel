@@ -48,43 +48,36 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl';
 
-.header-fixed {
-  z-index: 2;
-  position: fixed;
-  top: 0;
-  height: $headerHeight;
-  width: 100%;
-  line-height: $headerHeight;
-  background: $bgColor;
-  color: #fff;
-  text-align: center;
-}
-
-.header-back {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0.64rem;
-  text-align: center;
-  font-size: 0.5rem;
-  color: #fff;
-}
-
-.header-abs {
-  position: absolute;
-  left: 0.2rem;
-  top: 0.2rem;
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 0.4rem;
-  background: rgba(0, 0, 0, 0.4);
-  text-align: center;
-}
-
-.back-icon {
-  line-height: 0.8rem;
-  font-size: 0.6rem;
-  color: #fff;
-}
+.header-abs
+  position: absolute
+  left: 0.2rem
+  top: 0.2rem
+  width: 0.8rem
+  height: 0.8rem
+  border-radius: 0.4rem
+  background: rgba(0, 0, 0, 0.4)
+  text-align: center
+  .back-icon
+    line-height: 0.8rem
+    font-size: 0.6rem
+    color: #fff
+.header-fixed
+  z-index: 2
+  position: fixed
+  top: 0
+  height: $headerHeight
+  width: 100%
+  line-height: $headerHeight
+  background: $bgColor
+  color: #fff
+  text-align: center
+  .header-back
+    position: absolute
+    top: 0
+    left: 0
+    width: 0.64rem
+    text-align: center
+    font-size: 0.5rem
+    color: #fff
 </style>
 
