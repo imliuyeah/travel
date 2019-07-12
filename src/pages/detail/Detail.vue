@@ -1,44 +1,78 @@
 <template>
-    <div>
-        <detail-banner></detail-banner>
-        <detail-header></detail-header>
-        <detail-List :list="list"></detail-List>
-    </div>
+  <div class="wrapper">
+    <detail-banner :bannerImg="bannerImg" :gallaryImgs="gallaryImgs" :sightName="sightName"></detail-banner>
+    <detail-header></detail-header>
+    <detail-info></detail-info>
+    <detail-announce></detail-announce>
+    <detail-recommend :list="recommendList"></detail-recommend>
+    <detail-List :list="list"></detail-List>
+    <div class="container"></div>
+  </div>
 </template>
 
 <script>
-import DetailBanner from './components/Banner'
-import DetailHeader from './components/Header'
-import DetailList from './components/List'
+import DetailBanner from "./components/Banner";
+import DetailHeader from "./components/Header";
+import DetailInfo from "./components/Info";
+import DetailAnnounce from "./components/Announce";
+import DetailRecommend from "./components/Recommend";
+import DetailList from "./components/List";
+import axios from "axios";
 
 export default {
-    name: 'Detail',
-    components: {
-        DetailBanner,
-        DetailHeader,
-        DetailList
+  name: "Detail",
+  components: {
+    DetailBanner,
+    DetailHeader,
+    DetailInfo,
+    DetailAnnounce,
+    DetailRecommend,
+    DetailList
+  },
+  data() {
+    return {
+      bannerImg: "",
+      recommendList: [],
+      list: [],
+      gallaryImgs: [],
+      sightName: ""
+    };
+  },
+  methods: {
+    getHomeInfo() {
+      // 这里等于 '/api/detail.json?id=' + this.$route.params
+      axios
+        .get("/api/detail.json", {
+          params: {
+            id: this.$route.params.id
+          }
+        })
+        .then(this.getHomeInfoSucc);
     },
-    data () {
-        return {
-            list: [{
-                title: '成人票',
-                children: [{
-                    title: '成人三馆联票'
-                }, {
-                    title: '成人五馆联票'
-                }]
-            }, {
-                title: '学生票'
-            }, {
-                title: '儿童票'
-            }, {
-                title: '特惠票'
-            }]
-        }
+    getHomeInfoSucc(res) {
+      res = res.data;
+      if (res.ret && res.data) {
+        const data = res.data;
+        this.bannerImg = data.bannerImg;
+        this.recommendList = data.recommendList
+        this.list = data.categoryList;
+        this.gallaryImgs = data.gallaryImgs;
+        this.sightName = data.sightName;
+      }
     }
-}
+  },
+  mounted() {
+    this.getHomeInfo();
+  }
+};
 </script>
 
 <style lang="stylus" scoped>
+@import '~styles/varibles.styl'
+.wrapper
+  background: $detailbcg
+.container
+  background: #fff
+  height: 50rem
 
 </style>
