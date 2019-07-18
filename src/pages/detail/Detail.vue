@@ -42,7 +42,7 @@ export default {
     getHomeInfo() {
       // 这里等于 '/api/detail.json?id=' + this.$route.params
       axios
-        .get("/api/detail.json", {
+        .get("/static/mock/detail.json", {
           params: {
             id: this.$route.params.id
           }
