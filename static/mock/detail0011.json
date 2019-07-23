@@ -1,0 +1,21 @@
+{
+  "ret": true,
+  "data": {
+    "sightName": "南山滑雪场",
+    "bannerImg": "http://img1.qunarzz.com/sight/p0/1511/d2/d2aec2dfc5aa771290.water.jpg_600x330_cbd1e1e9.jpg",
+    "gallaryImgs": [
+      "http://img1.qunarzz.com/sight/p0/1511/d2/d2aec2dfc5aa771290.water.jpg_r_800x800_87ef5b1b.jpg", 
+      "http://img1.qunarzz.com/sight/p0/201403/07/d7040ce3a5a3a175f13be14ef087de73.jpg_r_800x800_ef06c1df.jpg",
+      "http://img1.qunarzz.com/sight/p0/201403/07/f5a1ec3a082bf8080ca2463d928a3db6.jpg_r_800x800_b383a374.jpg",
+      "http://img1.qunarzz.com/sight/p0/1511/11/119129bba8323f0d90.water.jpg_r_800x800_0f07ddeb.jpg",
+      "http://img1.qunarzz.com/sight/p0/1501/e2/e2df37b01d100964.water.jpg_r_800x800_2d557595.jpg",
+      "http://img1.qunarzz.com/sight/p0/201403/07/66a8871d121945d4c4b21bd1824c5dba.jpg_r_800x800_cd4f70dc.jpg"
+    ],
+    "info": {
+      "score": "4.9分",
+      "desc": "很棒",
+      "address": "北京市密云县河南寨镇圣水头村",
+      "comment": "2545条评论"
+    }
+  }
+}
