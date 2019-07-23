@@ -1,43 +1,43 @@
 <template>
   <div>
-    <div class="wrapper" ref="tab">
-      <div :class="['tab', {'fixed': isfixed}]" >
-        <span class="tab-item">门票</span>
-        <span class="tab-item">景区服务</span>
-        <span class="tab-item">热销组合</span>
-        <span class="tab-item">一日游</span>
+    <div class="wrapper" ref="wrapper" v-show="tabList">
+      <div :class="['tab', {'fixed': isfixed}]">
+        <span v-for="(item, index) in tabList" 
+              :key="index"
+              class="tab-item"
+              :style="{ width: (tabList.length == 2 ? '50%' : '')}" 
+              @click="handleTabClick(index)"
+              ref="tab">
+          {{item}}
+        </span>
       </div>
     </div>
-    <!-- <div class="item border-bottom" v-for="(item, index) of list" :key="index">
-      <div class="item-title">
-        <span class="item-title-icon"></span>
-        {{item.title}}
-      </div>
-    </div> -->
-    <div class="item border-top" v-for="(items, index) in list" :key="index">
-      <div class="item-type border-bottom">
-        <span class="item-type-icon"></span>
-        {{items.title}}
-      </div>
-      <div class="item-content" @click="clickShowDetail(item)" v-for="(item, index) in items.content" :key="index">
-        <div class="item-content-header">
-          <span class="item-content-title">{{item.title}}</span> 
-          <div class="item-content-right">
-            <strong class="item-content-price">{{item.price}}</strong>
-            <span class="item-content-word">起</span> 
-            <span class="iconfont item-content-icon">&#xe610;</span> 
-          </div>
+    <div v-for="(category, index) in list" :key="index" ref="key" >
+      <div class="item border-top" v-for="items in category" :key="items.id">
+        <div class="item-type border-bottom">
+          <span class="item-type-icon"></span>
+          {{items.title}}
         </div>
-        <div class="item-detail" v-show="showId === item.id">
-          <div class="item-detail-left">
-            <h6 class="item-ticket-title">{{item.detail}}</h6>
-            <span class="item-ticket-time">{{item.time}}</span>
+        <div class="item-content" @click="clickShowDetail(item)" v-for="(item, index) in items.content" :key="index">
+          <div class="item-content-header">
+            <span class="item-content-title">{{item.title}}</span> 
+            <div class="item-content-right">
+              <strong class="item-content-price">{{item.price}}</strong>
+              <span class="item-content-word">起</span> 
+              <span class="iconfont item-content-icon">&#xe610;</span> 
+            </div>
           </div>
-          <div class="item-detail-right">
-            <strong class="item-ticket-price">{{item.price}}</strong>
-            <span class="item-ticket-book">预定</span>
-          </div>
-        </div> 
+          <div class="item-detail" v-show="showId === item.id">
+            <div class="item-detail-left">
+              <h6 class="item-ticket-title">{{item.detail}}</h6>
+              <span class="item-ticket-time">{{item.time}}</span>
+            </div>
+            <div class="item-detail-right">
+              <strong class="item-ticket-price">{{item.price}}</strong>
+              <span class="item-ticket-book">预定</span>
+            </div>
+          </div> 
+        </div>
       </div>
     </div>
   </div>
@@ -47,28 +47,32 @@
 export default {
   name: "DetailList",
   props: {
-    list: Array
+    list: Array,
+    tabList: Array
   },
   data() {
     return {
-      // showDetail: false,
       isfixed: false,
-      showId: ''
+      showId: '0',
     };
   },
   methods: {
     clickShowDetail(item){
       if(this.showId == item.id){
         this.showId = ''
-        // this.showDetail = !this.showDetail
       }else{
         this.showId = item.id
       }
     },
     handleScroll(){
-      const offsetTop = this.$refs.tab.offsetTop
+      const offsetTop = this.$refs.wrapper.offsetTop
       const scrollTop = document.documentElement.scrollTop 
       scrollTop > offsetTop ? this.isfixed = true : this.isfixed = false
+    },
+    handleTabClick(index){
+      const element = this.$refs.key[index]
+      const top = element.offsetTop
+      document.documentElement.scrollTop = top-43-48
     }
   },
   mounted(){
@@ -95,6 +99,7 @@ export default {
     border-bottom: 1px solid #ddd
     background: #fff
     .tab-item
+      position: relative
       display: inline-block
       width: 2.4rem
       line-height: .96rem

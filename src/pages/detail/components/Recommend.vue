@@ -4,7 +4,7 @@
       <span class="iconfont recommend-title-icon">&#xe685;</span>
       去哪儿推荐
     </h3>
-    <div class="recommend-item" v-for="items in list" :key="items.id">
+    <div class="recommend-item" v-for="items in recommendList" :key="items.id">
       <div class="recommend-item-left" @click="clickShowDetail(items)">
         <h6 class="recommend-ticket-title">{{items.title}}</h6>
         <span class="recommend-ticket-time">{{items.time}}</span>
@@ -13,13 +13,15 @@
         <strong class="recommend-ticket-price">{{items.price}}</strong>
         <span class="recommend-ticket-book">预定</span>
       </div>
-      <div class="ticket-wrapper" v-show="showDetail">
-        <div class="ticket-detail">
-          <h2 class="ticket-title">
-            <span class="iconfont ticket-detail-close" @click.stop="clickCloseDetail">&#xe649;</span>
-            【当日票】故宫学生票凭身份证入园
-          </h2>
-          <div class="ticket-item" v-for="(item, index) in items.recommendDetail" :key="index">
+    </div>
+    <div class="ticket-wrapper"  v-show="showId === items.id" v-for="(items, index) of recommendDetail" :key="index">
+      <div class="ticket-detail">
+        <h2 class="ticket-title">
+          <span class="iconfont ticket-detail-close" @click.stop="clickCloseDetail">&#xe649;</span>
+          {{items.title}}
+        </h2>
+        <div  class="ticket-list" :style="{'height': height}">
+          <div class="ticket-item" v-for="(item, index) in items.content" :key="index">
             <h4 class="ticket-item-title">{{item.title}}</h4>
             <div class="ticket-item-content" v-for="items in item.content.keyword" :key="items.id">
               <span class="ticket-item-keyword">{{items.keytitle}}</span>
@@ -27,11 +29,11 @@
             </div>
           </div>
         </div>
-        <div class="ticket-booking">
-          <span class="ticket-booking-pay"> 在线支付</span>
-          <span class="ticket-booking-price">{{price}}</span>
-          <span class="ticket-booking-btn">立即预定</span>
-        </div>
+      </div>
+      <div class="ticket-booking">
+        <span class="ticket-booking-pay"> 在线支付</span>
+        <span class="ticket-booking-price">{{price}}</span>
+        <span class="ticket-booking-btn">立即预定</span>
       </div>
     </div>
   </div>
@@ -41,21 +43,28 @@
 export default {
   name: "DetailRecommend",
   props:{
-    list: Array
+    recommendList: Array,
+    recommendDetail: Array
   },
   data() {
     return {
-      showDetail: false,
-      price: ""
+      showId: '',
+      price: '',
+      height: ''
     };
   },
   methods: {
     clickShowDetail(items){
-      this.showDetail = true
+      if(this.showId == items.id){
+        this.showId = ''
+      }else{
+        this.showId = items.id
+      }
       this.price = items.price
+      this.height = window.screen.height - 56 - 50 - 45 + "px"
     },
     clickCloseDetail(){
-      this.showDetail = false
+      this.showId = ''
     }
   }
 };
@@ -64,6 +73,7 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/mixins.styl';
 @import '~styles/varibles.styl';
+
 .recommend 
   background: #fff
   padding-left: .2rem
@@ -113,39 +123,38 @@ export default {
         background-image: -moz-linear-gradient(-60deg, #ffab1e 37%, #ff8c12 100%)
         background-image: -o-linear-gradient(-60deg, #ffab1e 37%, #ff8c12 100%)
         background-image: linear-gradient(130deg, #ffab1e 37%, #ff8c12 100%)
-    .ticket-wrapper
+  .ticket-wrapper
+    position: fixed
+    z-index: 2
+    right: 0
+    bottom: 0
+    left: 0
+    width: 100%
+    height: 100%  
+    background-color: rgba(0, 0, 0, .4)
+    .ticket-detail
       position: fixed
-      z-index: 2
-      right: 0
+      top: $headerHeight
       bottom: 0
-      left: 0
-      width: 100%
-      height: 100%  
-      background-color: rgba(0, 0, 0, .4)
-      .ticket-detail
-        position: fixed
-        top: $headerHeight
-        bottom: 0
-        z-index: 3
-        padding-top: $headerHeight
-        background-color: rgba(255, 255, 255, 1)
-        overflow: scroll
-        .ticket-title
-          position: fixed
-          top: $headerHeight
-          padding: .4rem .2rem .4rem .2rem
-          width: 100%
-          border-bottom: 1px solid #ddd
-          font-size: .32rem
-          font-weight: bold
-          background-color: #fff
-          .ticket-detail-close
-            display: block
-            position: absolute
-            top: .2rem
-            right: .8rem
-            font-size: .4rem
-            color: #9e9e9e
+      z-index: 3
+      background-color: rgba(255, 255, 255, 1)
+      overflow: hidden
+      .ticket-title
+        padding: .4rem .8rem .4rem .2rem
+        border-bottom: 1px solid #ddd
+        font-size: .32rem
+        font-weight: bold
+        background-color: #fff
+        .ticket-detail-close
+          display: block
+          position: absolute
+          top: .2rem
+          right: .4rem
+          font-size: .4rem
+          color: #9e9e9e
+      .ticket-list
+        padding-bottom: 1rem
+        overflow: scroll 
         .ticket-item
           padding: 0 .4rem .2rem .4rem
           .ticket-item-title
@@ -169,36 +178,36 @@ export default {
               float: left
               padding-left: .1rem 
               line-height: .46rem 
-      .ticket-booking
-        display: flex
-        position: fixed
-        z-index: 4
-        bottom: 0
+    .ticket-booking
+      display: flex
+      position: fixed
+      z-index: 4
+      bottom: 0
+      height: 1rem
+      width: 100%
+      border-top: 1px solid #ddd
+      line-height: 1rem
+      background-color: #fff
+      .ticket-booking-pay
+        padding-left: .2rem 
+        color: #999
+        font-size: .24rem
+      .ticket-booking-price
+        padding-right: 1.5rem
+        color: #ff9800;
+        font-size: .48rem
+      .ticket-booking-btn
+        flex: 1
         height: 1rem
-        width: 100%
-        border-top: 1px solid #ddd
+        font-size: .4rem
         line-height: 1rem
-        background-color: #fff
-        .ticket-booking-pay
-          padding-left: .2rem 
-          color: #999
-          font-size: .24rem
-        .ticket-booking-price
-          padding-right: 1.5rem
-          color: #ff9800;
-          font-size: .48rem
-        .ticket-booking-btn
-          flex: 1
-          height: 1rem
-          font-size: .4rem
-          line-height: 1rem
-          text-align: center
-          color: #fff
-          background-image: -webkit-gradient(linear, left top, right bottom, from(#ffab1e), to(#ff8c12))
-          background-image: -webkit-linear-gradient(-60deg, #ffab1e 37%, #ff8c12 100%)
-          background-image: -moz-linear-gradient(-60deg, #ffab1e 37%, #ff8c12 100%)
-          background-image: -o-linear-gradient(-60deg, #ffab1e 37%, #ff8c12 100%)
-          background-image: linear-gradient(130deg, #ffab1e 37%, #ff8c12 100%)
+        text-align: center
+        color: #fff
+        background-image: -webkit-gradient(linear, left top, right bottom, from(#ffab1e), to(#ff8c12))
+        background-image: -webkit-linear-gradient(-60deg, #ffab1e 37%, #ff8c12 100%)
+        background-image: -moz-linear-gradient(-60deg, #ffab1e 37%, #ff8c12 100%)
+        background-image: -o-linear-gradient(-60deg, #ffab1e 37%, #ff8c12 100%)
+        background-image: linear-gradient(130deg, #ffab1e 37%, #ff8c12 100%)
 </style>
 
 

@@ -1,20 +1,20 @@
 <template>
   <div class="info">
     <div class="info-box">
-      <router-link :to="'/comment/' + $route.params.id" 
+      <router-link :to="'#'" 
                     tag="div"
                     class="info-item">
         <div>
-          <span class="info-item-score">5.0分</span>
-          <span class="info-item-desc">超赞</span>
+          <span class="info-item-score">{{list.score}}</span>
+          <span class="info-item-desc">{{list.desc}}</span>
         </div>
         <div>
-          <span class="info-item-commentnum">423869条评论</span>
-          <span class="info-item-commentnum">93条攻略</span>
+          <span class="info-item-commentnum">{{list.comment}}</span>
+          <span class="info-item-commentnum" v-if="list.raiders">{{list.raiders}}</span>
         </div>
         <span class="iconfont info-arrow">&#xe7eb;</span>
       </router-link>
-      <router-link :to="'/introduction/' + $route.params.id" 
+      <router-link :to="'#'" 
                     tag="div" 
                     class="info-desc">
         <div>
@@ -28,7 +28,7 @@
     </div>
     <div class="info-address">
       <span class="iconfont info-location">&#xe61a;</span>
-      <span>北京市东城区景山前街4号</span>
+      <span>{{list.address}}</span>
       <span class="iconfont info-arrow">&#xe7eb;</span>
     </div>
   </div>
@@ -37,6 +37,9 @@
 <script>
 export default {
   name: "DetailInfo",
+  props: {
+    list: Object
+  }
 };
 </script>
 
