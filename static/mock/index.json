@@ -54,6 +54,60 @@
         "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/d0/e09575e66f4aa402.png",
         "desc": "演出"
       }],
+    "hotList": [{
+        "id": "0001",
+        "imgUrl": "https://imgs.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_250x250_0fc722c0.jpg",
+        "title": "故宫",
+        "price": "￥60起",
+        "tagUrl": "https://imgs.qunarzz.com/piao/fusion/1710/ab/159673b63e6ca702.png"
+      }, {
+        "id": "0002",
+        "imgUrl": "https://imgs.qunarzz.com/sight/p0/1708/2b/2b3b94de99c0a425a3.img.jpg_250x250_50c99cf3.jpg",
+        "title": "八达岭长城",
+        "price": "￥40起",
+        "tagUrl": "https://imgs.qunarzz.com/piao/fusion/1710/2d/36d0c4adaebbbc02.png"
+      }, {
+        "id": "0003",
+        "imgUrl": "https://imgs.qunarzz.com/sight/p0/1505/d2/d274c92de14c93da.water.jpg_250x250_d852635b.jpg",
+        "title": "颐和园",
+        "price": "￥38起",
+        "tagUrl": "https://imgs.qunarzz.com/piao/fusion/1710/67/edc47ffef9e96b02.png"
+      }, {
+        "id": "0004",
+        "imgUrl": "https://imgs.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_250x250_63e3520a.jpg",
+        "title": "圆明园",
+        "price": "￥25起"
+      }, {
+        "id": "0005",
+        "imgUrl": "https://imgs.qunarzz.com/sight/p0/1902/84/84696f368bbec10da3.img.jpg_250x250_3588bc9a.jpg",
+        "title": "北京世界园艺博览会",
+        "price": "￥108起"
+      }, {
+        "id": "0006",
+        "imgUrl": "https://imgs.qunarzz.com/sight/p0/1603/85/85c883189bf7293390.water.jpg_250x250_090a42b6.jpg",
+        "title": "什刹海",
+        "price": "￥10起"
+      }, {
+        "id": "0007",
+        "imgUrl": "https://imgs.qunarzz.com/sight/p0/1705/7b/7bc3480c17245bd3a3.img.jpg_250x250_397be0d7.jpg",
+        "title": "怀北高山漂流",
+        "price": "￥118起"
+      }, {
+        "id": "0008",
+        "imgUrl": "https://imgs.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_250x250_6ec2f798.jpg",
+        "title": "恭王府",
+        "price": "￥28起"
+      }, {
+        "id": "0009",
+        "imgUrl": "https://imgs.qunarzz.com/sight/p0/1602/92/920e47352552c1c990.water.jpg_250x250_ee99c18e.jpg",
+        "title": "天坛公园",
+        "price": "￥40起"
+      }, {
+        "id": "0010",
+        "imgUrl": "https://imgs.qunarzz.com/sight/p0/1604/78/78873494f26e554090.water.jpg_250x250_0565d534.jpg",
+        "title": "京东石林峡",
+        "price": "￥58起"
+      }],
     "recommendList": [{
         "id": "0001",
         "imgUrl": "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_140x140_80f63803.jpg",

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="title">热销推荐</div>
+    <div class="title">
+      <img class="title-img" src="https://imgs.qunarzz.com/piao/fusion/1711/89/ebc329f16c55bb02.png" alt="猜你喜欢">
+      猜你喜欢
+    </div>
     <ul>
       <router-link
         tag="li"
@@ -35,8 +38,12 @@ export default {
 .title
   margin-top: 0.2rem
   line-height: 0.8rem
-  background: #eee
+  font-size: .32rem
   text-indent: 0.2rem
+  background: #f5f5f5
+  .title-img
+    width: .3rem
+    height: .3rem
 .item
   overflow: hidden
   display: flex

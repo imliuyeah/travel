@@ -3,6 +3,7 @@
     <home-header></home-header> 
     <home-swiper :list="swiperList"></home-swiper>
     <home-icons :list="iconList"></home-icons>
+    <home-hot :list="hotList"></home-hot>
     <home-recommend :list="recommendList"></home-recommend>
     <home-weekend :list="weekendList"></home-weekend>
   </div>
@@ -13,6 +14,7 @@
 import HomeHeader from './components/Header.vue'
 import HomeSwiper from './components/Swiper.vue'
 import HomeIcons from './components/Icons.vue'
+import HomeHot from './components/Hot.vue'
 import HomeRecommend from './components/Recommend.vue'
 import HomeWeekend from './components/Weekend.vue'
 import axios from 'axios'
@@ -24,6 +26,7 @@ export default {
     HomeHeader,
     HomeSwiper,
     HomeIcons,
+    HomeHot,
     HomeRecommend,
     HomeWeekend
   },
@@ -32,6 +35,7 @@ export default {
       lastCity: '',
       swiperList: [],
       iconList: [],
+      hotList: [],
       recommendList: [],
       weekendList: []
     }
@@ -50,6 +54,7 @@ export default {
         const data = res.data
         this.swiperList = data.swiperList
         this.iconList = data.iconList
+        this.hotList = data.hotList
         this.recommendList = data.recommendList
         this.weekendList = data.weekendList
       }
