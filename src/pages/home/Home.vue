@@ -1,7 +1,9 @@
 <template>
   <div>
     <home-header></home-header> 
-    <home-swiper :list="swiperList"></home-swiper>
+    <keep-alive>
+      <home-swiper :list="swiperList"></home-swiper>
+    </keep-alive>
     <home-icons :list="iconList"></home-icons>
     <home-hot :list="hotList"></home-hot>
     <home-recommend :list="recommendList"></home-recommend>
