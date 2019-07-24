@@ -66,13 +66,17 @@ export default {
     },
     handleScroll(){
       const offsetTop = this.$refs.wrapper.offsetTop
-      const scrollTop = document.documentElement.scrollTop 
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       scrollTop > offsetTop ? this.isfixed = true : this.isfixed = false
     },
     handleTabClick(index){
       const element = this.$refs.key[index]
       const top = element.offsetTop
-      document.documentElement.scrollTop = top-43-48
+      if(document.documentElement.scrollTop){
+        document.documentElement.scrollTop= top-43-48
+      }else{
+        document.body.scrollTop = top-43-48
+      }
     }
   },
   mounted(){
